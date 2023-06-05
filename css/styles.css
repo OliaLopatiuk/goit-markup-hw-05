@@ -113,9 +113,9 @@ img {
 }
 
 .current::after {
-  content: " ";
+  content: "";
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
 
   display: block;
@@ -399,12 +399,12 @@ img {
   border: 1px solid var(--customers-color);
   border-radius: 4px;
   color: var(--customers-color);
-  transition: color var(--transition), border var(--transition);
+  transition: color var(--transition), border-color var(--transition);
 }
 
 .customer-link:hover,
 .customer-link:focus {
-  border: 1px solid var(--active);
+  border-color: var(--active);
   color: var(--active);
 }
 
@@ -488,6 +488,9 @@ img {
   height: 100%;
 
   background: rgba(46, 47, 66, 0.4);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity var(--transition), visibility var(--transition);
 }
 
 .backdrop.is-hidden {
@@ -501,11 +504,15 @@ img {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: transform var(--transition);
 
   width: 408px;
-  height: 584px;
+  min-height: 584px;
 
   background-color: var(--modal-background-color);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
 }
 
 .close-modal-button {
@@ -538,7 +545,7 @@ img {
 .close-modal-button:hover,
 .close-modal-button:focus {
   background-color: var(--active);
-  border: 1px solid var(--active);
+  border: none;
 }
 
 .close-modal-button:hover .close-modal-icon,
