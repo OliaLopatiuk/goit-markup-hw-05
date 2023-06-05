@@ -17,6 +17,7 @@
   --active: #404bbf;
   --customers-color: #8e8f99;
   --footer-active-color: #31d0aa;
+  --modal-background-color: #fcfcfc;
 }
 
 body {
@@ -246,7 +247,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-   margin-bottom: 8px;
+  margin-bottom: 8px;
   height: 112px;
   background-color: var(--light-background-color);
   border-radius: 4px;
@@ -363,7 +364,7 @@ img {
 }
 
 .customer-card {
-  width: calc((100%-120px) / 6);
+  width: calc((100% - 120px) / 6);
   height: 88px;
 }
 
@@ -451,6 +452,65 @@ img {
 .footer .social-link:hover,
 .footer .social-link:focus {
   background-color: var(--footer-active-color);
+}
+
+/* Modal */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(46, 47, 66, 0.4);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 408px;
+  height: 584px;
+
+  background-color: var(--modal-background-color);
+}
+
+.close-modal-button {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--light-accent-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+
+  cursor: pointer;
+}
+
+.close-modal-icon {
+  fill: var(--dark-background-color);
+}
+
+.close-modal-button:hover,
+.close-modal-button:focus {
+  background-color: var(--active);
 }
 
 /* Portfolio */
